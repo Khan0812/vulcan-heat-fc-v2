@@ -1,0 +1,409 @@
+/* ================= ROOT THEME ================= */
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --accent: #b11226;
+  --card: #f5f5f5;
+  --border: #dddddd;
+}
+
+/* ================= RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 36px;
+}
+
+.club-name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ================= DESKTOP MENU ================= */
+
+.desktop-menu {
+  display: flex;
+  gap: 22px;
+}
+
+.desktop-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.desktop-menu a:hover {
+  text-decoration: underline;
+}
+
+/* ================= THEME BUTTONS ================= */
+
+.theme-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.theme {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.theme.dark { background: #111; }
+.theme.light { background: #fff; }
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  padding: 14px 10px;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-menu.active {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  .theme-buttons {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+  padding: 80px 0;
+}
+
+/* ================= HOME ================= */
+
+.home {
+  text-align: center;
+}
+
+.home-content {
+  max-width: 700px;
+  margin: auto;
+}
+
+.home h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.home h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.home-btn {
+  padding: 12px 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  transition: 0.3s;
+}
+
+/* ================= ABOUT ================= */
+
+.about-section {
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+.about-section p {
+  max-width: 800px;
+  margin: 0 auto 18px;
+  line-height: 1.8;
+}
+
+.about-quote {
+  margin-top: 25px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* ================= TEAM ================= */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  padding-top: 10px;
+  gap: 20px;
+}
+
+.team-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.team-card h3 {
+  margin: 10px 0 4px;
+}
+
+/* ================= FOUNDERS ================= */
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding-top: 10px;
+  gap: 20px;
+}
+
+.founder-card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding-top: 10px;
+  gap: 20px;
+}
+
+.stat-box {
+  background: var(--accent);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ================= MATCHES ================= */
+
+.match-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.match-grid {
+  display: grid;
+  padding-top: 10px;
+}
+
+/* ================= MOMENTS ================= */
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  padding-top: 10px;
+  gap: 15px;
+}
+
+.moment-box {
+  height: 90px;
+  background: #eee;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box a {
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  text-align: center;
+  margin: 80px 0 20px;
+  color: #777;
+}
+
+/* ================= FADE ANIMATION ================= */
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.7s ease;
+}
+
+.fade-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= CARDS HOVER ================= */
+
+.team-card,
+.founder-card,
+.stat-box,
+.match-card {
+  transition: 0.3s ease;
+}
+
+.team-card:hover,
+.founder-card:hover,
+.match-card:hover {
+  transform: translateY(-6px);
+}
+
+
+/* ================= THEMES ================= */
+
+body.dark-theme {
+  --bg: #0f0f0f;
+  --text: #ffffff;
+  --card: #1a1a1a;
+  --border: #333;
+}
+
+body.light-theme {
+  --bg: #ffffff;
+  --text: #111111;
+  --card: #f5f5f5;
+  --border: #dddddd;
+}
+
+body.red-theme {
+  --bg: #0f0f0f;
+  --text: #ffffff;
+  --accent: #b11226;
+  --card: #1a1a1a;
+  --border: #333;
+}
